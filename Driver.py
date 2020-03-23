@@ -29,8 +29,11 @@ def fifo():
             amount = int(input("Please specify how many:\n>>>"))
             instance_amountQ.enqueue(int(amount))
             inventory += amount
+            if one_time == 0:
+                next_stock_price = int(input("Please specify its price:\n>>>"))
+                profit += (initial_price - next_stock_price) * amount
             if one_time == 1:
-                price = int(input("Please specify hom much it costs:\n>>>"))
+                price = int(input("Please specify hom much is your first stock costs:\n>>>"))
                 one_time -= 1
                 initial_price = price
         # Process of subtracting from inventory and adding to profits
@@ -57,19 +60,19 @@ def fifo():
                     if storage > amount_to_sell:
                         difference = storage - amount_to_sell
                         instance_amountQ.enqueue(difference)
-                        profit += (stock_price * amount_to_sell) - (initial_price * amount_to_sell)
+                        profit += (stock_price - initial_price) * amount_to_sell
                     if storage == amount_to_sell:
-                        profit += (stock_price * amount_to_sell) - (initial_price * amount_to_sell)
+                        profit += (stock_price - initial_price) * amount_to_sell
                 # When amount is less than first node in the Queue
                 if amount_to_sell < x and amount_to_sell > 0:
                     selling_item = instance_amountQ.dequeue()
                     difference = selling_item - amount_to_sell
                     instance_amountQ.enqueue(difference)
-                    profit += stock_price * amount_to_sell
+                    profit += (stock_price - initial_price) * amount_to_sell
                 # In case X equals to amount to sell
                 if x == amount_to_sell:
                     selling_item = instance_amountQ.dequeue()
-                    profit += stock_price * selling_item
+                    profit += (stock_price - initial_price) * selling_item
         # This is to keep track of profits
         if select == 3:
             print("So far you have made:")
@@ -104,8 +107,11 @@ def lifo():
             amount = int(input("Please specify how many:\n>>>"))
             instance_amountS.push(int(amount))
             inventory += amount
+            if one_time == 0:
+                next_stock_price = int(input("Please specify its price:\n>>>"))
+                profit += (initial_price - next_stock_price) * amount
             if one_time == 1:
-                price = int(input("Please specify hom much it costs:\n>>>"))
+                price = int(input("Please specify hom much is your first stock costs:\n>>>"))
                 one_time -= 1
                 initial_price = price
         # Process to sell items from the inventory
@@ -133,20 +139,20 @@ def lifo():
                     if storage > amount_to_sell:
                         difference = storage - amount_to_sell
                         instance_amountS.push(difference)
-                        profit += (stock_price_ * amount_to_sell) - (initial_price * amount_to_sell)
+                        profit += (stock_price_ - initial_price) * amount_to_sell
                     if storage == amount_to_sell:
-                        profit += (stock_price_ * amount_to_sell) - (initial_price * amount_to_sell)
+                        profit += (stock_price_ - initial_price) * amount_to_sell
                 # When amount for sell is less than first number in Stack
                 if amount_to_sell < x and amount_to_sell > 0:
                     # Process is easy
                     selling_item = instance_amountS.pop()
                     difference = selling_item - amount_to_sell
                     instance_amountS.push(difference)
-                    profit += stock_price_ * amount_to_sell
+                    profit += (stock_price_ - initial_price) * amount_to_sell
                 # When it happens that first number equals to selling amount
                 if x == amount_to_sell:
                     selling_item = instance_amountS.pop()
-                    profit += stock_price_ * selling_item
+                    profit += (stock_price_ - initial_price) * selling_item
         # Display so far made profit
         if select == 3:
             print("So far you have made:")
