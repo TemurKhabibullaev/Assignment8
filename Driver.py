@@ -11,17 +11,17 @@ instance_priceS = S()
 
 
 def fifo():
-    # We'll keep these two temporary variables
+    # We'll keep these two temporary variables (QUEUES)
     profit = 0
     inventory = 0
 
     while True:
-        print("""Welcome! Choose below to proceed!
+        print("""You are in FIFO style. Choose below to proceed!
         MENU:
-        1. Add to the inventory.
-        2. Sell items in inventory.
+        1. Add securities in portfolio.
+        2. Sell securities from portfolio.
         3. Check profit to date.
-        4. Display inventory.
+        4. Display portfolio.
         5. Enter 5 to exit.""")
         select = int(input("\n>>>"))
         # Process of adding to inventory and price data
@@ -85,16 +85,16 @@ def fifo():
 
 
 def lifo():
-    # These are temporary variables
+    # These are temporary variables (STACKS)
     profit = 0
     inventory = 0
     while True:
-        print("""Welcome! Choose below to proceed!
+        print("""You are in LIFO style. Choose below to proceed!
         MENU:
-        1. Add to the inventory.
-        2. Sell items in inventory.
+        1. Add securities in portfolio.
+        2. Sell securities from portfolio.
         3. Check profit to date.
-        4. Display inventory.
+        4. Display portfolio.
         5. Enter 5 to exit.""")
         select = int(input("\n>>>"))
         # Process of storing in inventory
@@ -159,4 +159,9 @@ def lifo():
         if select == 5:
             break
 
-fifo()
+
+choice = int(input("Please choose:\n1. FIFO\n2. LIFO\n>>>"))
+if choice == 1:
+    fifo()
+if choice == 2:
+    lifo()
