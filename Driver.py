@@ -57,7 +57,7 @@ def fifo():
                         difference = storage - amount_to_sell
                         instance_amountQ.enqueue(difference)
                         instance_priceQ.enqueue(last_price)
-                        profit += (last_price * 0.1) * amount_to_sell
+                        profit += last_price * amount_to_sell
                 # When amount is less than first node in the Queue
                 if amount_to_sell < x and amount_to_sell > 0:
                     selling_item = instance_amountQ.dequeue()
@@ -65,12 +65,12 @@ def fifo():
                     difference = selling_item - amount_to_sell
                     instance_amountQ.enqueue(difference)
                     instance_priceQ.enqueue(last_price)
-                    profit += (last_price * 0.1) * amount_to_sell
+                    profit += last_price * amount_to_sell
                 # In case X equals to amount to sell
                 if x == amount_to_sell:
                     selling_item = instance_amountQ.dequeue()
                     last_price = instance_priceQ.dequeue()
-                    profit += (last_price * 0.1) * selling_item
+                    profit += last_price * selling_item
         # This is to keep track of profits
         if select == 3:
             print("So far you have made:")
@@ -132,7 +132,7 @@ def lifo():
                         difference = storage - amount_to_sell
                         instance_amountS.push(difference)
                         instance_priceS.push(last_price)
-                        profit += (last_price * 0.1) * amount_to_sell
+                        profit += last_price * amount_to_sell
                 # When amount for sell is less than first number in Stack
                 if amount_to_sell < x and amount_to_sell > 0:
                     # Process is easy
@@ -141,12 +141,12 @@ def lifo():
                     difference = selling_item - amount_to_sell
                     instance_amountS.push(difference)
                     instance_priceS.push(last_price)
-                    profit += (last_price * 0.1) * amount_to_sell
+                    profit += last_price * amount_to_sell
                 # When it happens that first number equals to selling amount
                 if x == amount_to_sell:
                     selling_item = instance_amountS.pop()
                     last_price = instance_priceS.pop()
-                    profit += (last_price * 0.1) * selling_item
+                    profit += last_price * selling_item
         # Display so far made profit
         if select == 3:
             print("So far you have made:")
