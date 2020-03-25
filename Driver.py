@@ -38,8 +38,8 @@ def fifo():
                 initial_price = price
         # Process of subtracting from inventory and adding to profits
         if select == 2:
-            amount_to_sell = int(input("Specify how many will be deleted:\n>>>"))
-            stock_price = int(input("Hom much is it?:\n>>>"))
+            amount_to_sell = int(input("Specify how many will be sold:\n>>>"))
+            stock_price = int(input("Hom much are they?:\n>>>"))
             # If specified amount is too much
             if amount_to_sell > inventory:
                 print("You specified too large amount.")
@@ -79,7 +79,7 @@ def fifo():
             print(profit)
         # This is to show current condition of an inventory
         if select == 4:
-            print("Current inventory:")
+            print("Current number of particular stock in portfolio:")
             print(instance_amountQ.display())
         # Enter 5 to break
         if select == 5:
@@ -116,8 +116,8 @@ def lifo():
                 initial_price = price
         # Process to sell items from the inventory
         if select == 2:
-            amount_to_sell = int(input("Specify how many will be deleted:\n>>>"))
-            stock_price_ = int(input("How much is it?:\n>>>"))
+            amount_to_sell = int(input("Specify how many will be sold:\n>>>"))
+            stock_price_ = int(input("Hom much are they?:\n>>>"))
             # If specified amount is too much
             if amount_to_sell > inventory:
                 print("You specified too large amount.")
@@ -159,7 +159,7 @@ def lifo():
             print(profit)
         # Display leftover items
         if select == 4:
-            print("Current inventory:")
+            print("Current number of particular stock in portfolio:")
             print(instance_amountS.display())
         # Quit
         if select == 5:
@@ -168,6 +168,6 @@ def lifo():
 
 choice = int(input("Please choose:\n1. FIFO\n2. LIFO\n>>>"))
 if choice == 1:
-    fifo()
+    FIFO = fifo()
 if choice == 2:
-    lifo()
+    LIFO = lifo()
