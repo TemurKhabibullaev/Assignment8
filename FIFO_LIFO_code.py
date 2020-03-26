@@ -1,29 +1,18 @@
 from LinkedList import SinglyLinkedList
 
 
-class Stacks:
+class UniversalMethod:
     def __init__(self):
         self.ins = SinglyLinkedList()
 
-    def push(self, data):
+    def add_head(self, data):
         self.ins.add_head(data)
 
-    def pop(self):
+    def del_head(self):
         return self.ins.del_head()
 
-    def display(self):
-        return self.ins.display()
-
-
-class Queues:
-    def __init__(self):
-        self.ins = SinglyLinkedList()
-
-    def enqueue(self, data):
+    def add_end(self, data):
         self.ins.adding(data)
-
-    def dequeue(self):
-        return self.ins.del_head()
 
     def display(self):
         return self.ins.display()
